@@ -1,0 +1,24 @@
+CREATE DATABASE TestnaAplikacija
+USE TestnaAplikacija
+CREATE TABLE Salesman(
+SalesmanId INT NOT NULL PRIMARY KEY,
+NAME varchar(50),
+SURNAME varchar(50),
+OIB varchar(11),
+SALARY int
+);
+
+CREATE TABLE Buyer(
+BuyerId INT NOT NULL PRIMARY KEY,
+NAME varchar(50),
+SURNAME varchar(50),
+OIB varchar(11),
+IdFK INT FOREIGN KEY REFERENCES Salesman(SalesmanId)
+);
+
+CREATE TABLE Car(
+CarID INT NOT NULL PRIMARY KEY,
+NAME varchar(100),
+MANUFACTURER varchar(50),
+IdFK INT FOREIGN KEY REFERENCES Buyer(BuyerId)
+);
