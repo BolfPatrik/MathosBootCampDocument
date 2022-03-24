@@ -1,0 +1,48 @@
+INSERT INTO Salesman (SalesmanId,NAME, SURNAME, OIB, SALARY)
+VALUES(1, 'Joe', 'Morningstar','99607356910',5000);
+INSERT INTO Salesman (SalesmanId,NAME, SURNAME, OIB, SALARY)
+VALUES(2, 'John', 'Nightstar','48198916850',6000);
+INSERT INTO Salesman (SalesmanId,NAME, SURNAME, OIB, SALARY)
+VALUES(3, 'Joey', 'Morningstar','95406774537',5000);
+INSERT INTO Salesman (SalesmanId,NAME, SURNAME, OIB, SALARY)
+VALUES(4, 'Johnny', 'Eveningstar','46192352031',8000);
+INSERT INTO Salesman (SalesmanId,NAME, SURNAME, OIB, SALARY)
+VALUES(5, 'Johann', 'Noonstar','84822155452',9000);
+
+INSERT INTO Buyer (BuyerId,NAME, SURNAME, OIB)
+VALUES(1, 'Andrej', 'Korizma','56594620167');
+INSERT INTO Buyer (BuyerId,NAME, SURNAME, OIB)
+VALUES(2, 'Marija', 'Svetac','21073050925');
+INSERT INTO Buyer (BuyerId,NAME, SURNAME, OIB)
+VALUES(3, 'Josip', 'Runjanin','50609517275');
+INSERT INTO Buyer (BuyerId,NAME, SURNAME, OIB)
+VALUES(4, 'Josip', 'Tadijanovic','89643913373');
+INSERT INTO Buyer (BuyerId,NAME, SURNAME, OIB)
+VALUES(5, 'August', 'Senoa','21567488051');
+
+
+INSERT INTO Car(CarID,NAME,MANUFACTURER)
+VALUES(1, 'Renault','Clio');
+INSERT INTO Car(CarID,NAME,MANUFACTURER)
+VALUES(2, 'Avalon','Toyota');
+INSERT INTO Car(CarID,NAME,MANUFACTURER)
+VALUES(3, 'C-Zero','Citroen');
+INSERT INTO Car(CarID,NAME,MANUFACTURER)
+VALUES(4, 'California T','Ferrari');
+INSERT INTO Car(CarID,NAME,MANUFACTURER)
+VALUES(5, 'EcoSport', 'Ford');
+
+SELECT NAME, SURNAME FROM Salesman ORDER BY NAME;
+CREATE INDEX Fast ON Salesman(SURNAME);
+SELECT * FROM Salesman Where SURNAME='Morningstar' AND SALARY=5000;
+SELECT * FROM Buyer Where NAME='Josip' AND SURNAME = 'Runjanin';
+SELECT * FROM Salesman Where SALARY BETWEEN 4500 AND 6500;
+SELECT * FROM Salesman Where NAME LIKE '%Joey';
+SELECT * FROM Salesman Where NAME IN('Johann','Johnny');
+SELECT * FROM Salesman Where SURNAME='Morningstar' AND SALARY=5000;
+
+DELETE FROM Car Where NAME = 'EcoSport';
+
+SELECT Buyer.NAME, Salesman.SURNAME 
+FROM Buyer
+INNER JOIN Salesman on Buyer.NAME = Salesman.NAME
